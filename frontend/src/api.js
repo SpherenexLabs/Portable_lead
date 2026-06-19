@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const API_BASE = 'http://localhost:5000';
+// In development: http://localhost:5000
+// On Vercel:      /_/backend  (set VITE_API_URL=/_/backend in Vercel dashboard)
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
 // Send live sensor values to Flask backend for ML prediction
 export const predictLeadContamination = async (sensorData) => {

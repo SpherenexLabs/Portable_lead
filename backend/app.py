@@ -466,11 +466,15 @@ def model_info():
 
 
 # ---------------------------------------------------------------------------
-# Startup
+# Startup — works for both `python app.py` (dev) and gunicorn (Vercel prod)
 # ---------------------------------------------------------------------------
 
+# Load model at import time so gunicorn workers have it ready
+load_ml_model()
+print(f"[Firebase] REST writes → {FIREBASE_DB_URL}/Portable_lead/ML_Result.json")
+
 if __name__ == "__main__":
-    load_ml_model()
-    print(f"[Firebase] REST writes → {FIREBASE_DB_URL}/Portable_lead/ML_Result.json")
-    print("[Flask] Starting on http://0.0.0.0:5000")
-    app.run(debug=True, port=5000, host="0.0.0.0")
+    port = int(os.environ.get("PORT", 5000))
+    debug = os.environ.get("FLASK_ENV") != "production"
+    print(f"[Flask] Starting on http://0.0.0.0:{port}  debug={debug}")
+    app.run(debug=debug, port=port, host="0.0.0.0")
