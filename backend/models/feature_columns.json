@@ -1,0 +1,27 @@
+{
+  "feature_columns": [
+    "Solids",
+    "Turbidity",
+    "ph",
+    "Hardness",
+    "Chloramines",
+    "Sulfate",
+    "Conductivity",
+    "Organic_carbon",
+    "Trihalomethanes"
+  ],
+  "model_type": "classification",
+  "live_feature_mapping": {
+    "TDS": "Solids",
+    "TURB": "Turbidity"
+  },
+  "missing_from_live_hardware": [
+    "ph",
+    "Hardness",
+    "Chloramines",
+    "Sulfate",
+    "Conductivity",
+    "Organic_carbon",
+    "Trihalomethanes"
+  ]
+}

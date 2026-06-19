@@ -1,0 +1,35 @@
+{
+  "model_type": "classification",
+  "estimator": "RandomForestClassifier",
+  "dataset": "water_potability.csv",
+  "kaggle_slug": "adityakadiwal/water-potability",
+  "features_used": [
+    "Solids",
+    "Turbidity",
+    "ph",
+    "Hardness",
+    "Chloramines",
+    "Sulfate",
+    "Conductivity",
+    "Organic_carbon",
+    "Trihalomethanes"
+  ],
+  "live_features": [
+    "TDS",
+    "TURB"
+  ],
+  "missing_live_features": [
+    "ph",
+    "Hardness",
+    "Chloramines",
+    "Sulfate",
+    "Conductivity",
+    "Organic_carbon",
+    "Trihalomethanes"
+  ],
+  "metric_name": "Accuracy",
+  "score": 0.85,
+  "trained_at": "2026-06-19T11:16:59.787645",
+  "n_features": 9,
+  "n_estimators": 150
+}
